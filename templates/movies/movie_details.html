@@ -1,0 +1,40 @@
+{% extends "../base.html" %}
+{% block content %}
+<!-- Page Content -->
+<div class="container">
+
+  <!-- Portfolio Item Heading -->
+  <h1 class="my-4">
+    {{movie.name}}
+  </h1>
+
+  <!-- Portfolio Item Row -->
+  <div class="row">
+
+    <div class="col-md-8">
+      <img class="img-fluid" src="{{movie.image.url}}" alt="">
+    </div>
+
+    <div class="col-md-4">
+      <h3 class="my-3">About {{movie.name}}</h3>
+      <h5>production year : {{movie.production_year}} 
+        <br>
+     </h5>
+     <h3 class="my-3">Actors</h3>
+     <ul>
+       {% for actor in movie.actors.all  %}
+      <a href="{% url 'actors:actor_details' actor.id%}"> <li> {{actor.name}} </li> </a>
+       {% endfor %}
+     </ul>
+      
+  
+    </div>
+
+
+  </div>
+ 
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->
+{% endblock content %}

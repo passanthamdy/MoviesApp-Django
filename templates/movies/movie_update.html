@@ -1,0 +1,11 @@
+{% extends "../base.html" %} {% load crispy_forms_tags %} {% block content %}
+<div class="container">
+  <h2>Update {{movie.name}} info</h2>
+  <form method="POST" class="post-form" enctype="multipart/form-data">
+    {% csrf_token %} {{ form|crispy }}
+    <img width="200px" height="250px" src={{movie.image.url}} style="margin:15px" alt="">
+    <br>
+    <button type="submit" class="save btn btn-secondary">Save</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "../base.html" %}
+{% block title %} All actors{% endblock title %}
+ {% block content %}
+ <div class="row ">
+  {% for actor in actors  %}
+  <div class="col-md-2">
+    <div class="card h-100">
+      <img src="{{ actor.profile_picture.url }}" class="card-img-top h-100" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">
+          {{actor.name}}
+        </h5>
+        <p class="card-text">
+          {{actor.get_gender_display}} <br>
+          {{actor.age}} years old
+        </p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <a href="{% url 'actors:actor_details' actor.id %}" type="button" class="btn btn-sm btn-outline-secondary">View</a>
+            <a href="{% url 'actors:actor_update' actor.id %}" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
+            <a href="{% url 'actors:actor-delete' actor.id %}" type="button" class="btn btn-sm btn-outline-danger">Delete</a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+ {% endblock content %}
+

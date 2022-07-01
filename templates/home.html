@@ -1,0 +1,9 @@
+{% extends "./base.html" %} 
+{% block title %}  Home Page{% endblock title %}
+ {% block content %}
+<div class='container'>
+ <a href="{%url 'movies:list-movies'%}" type="button" class="btn btn-primary btn-lg d-flex justify-content-cente">List All Movies</a>
+ <br>
+ <a href="{%url 'actors:list-actors'%}" type="button" class="btn btn-primary btn-lg d-flex justify-content-cente">List All Actors</a>
+</diV>
+{% endblock %}
